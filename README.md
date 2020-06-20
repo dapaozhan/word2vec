@@ -1,11 +1,11 @@
-##代码功能
-####1、基于gensim的word2vec模型的训练
-####2、基于skip_gram模型的词向量模型的训练
-####3、词向量模型的评估（近义词、反义词）
-####4、兼容基于gensim的word2vec模型的训练、基于skip_gram模型的词向量模型的训练的增量模型的训练
-####5、转换词向量
+## 代码功能
+#### 1、基于gensim的word2vec模型的训练
+#### 2、基于skip_gram模型的词向量模型的训练
+#### 3、词向量模型的评估（近义词、反义词）
+#### 4、兼容基于gensim的word2vec模型的训练、基于skip_gram模型的词向量模型的训练的增量模型的训练
+#### 5、转换词向量
 
-##代码结构
+## 代码结构
 ```shell
 chinese-word2vec-pytorch                    
 |--Chinese_Dictionary    #存放评估语料的文件夹                  
@@ -65,8 +65,8 @@ chinese-word2vec-pytorch
 |--ModelEstimate.py       #词向量模型评估  
 |--DataTransformer.py  #转词向量代码 
 ```
-##执行方案
-###1、基于gensim的word2vec模型的训练
+## 执行方案
+### 1、基于gensim的word2vec模型的训练
 #### 词向量的长度理论上越长的话可以存储的信息越多，所以可以如果训练效果不满意，可以通过调整词向量的长度以及词窗口还有词频，调整模型，从而提高词向量模型的精度
 ```python
 from pyw2v.config.basic_config import configs as config
@@ -97,7 +97,7 @@ E:\chinese-word2vec-pytorch\pyw2v\dataset\raw\zhihu.txt
 总共耗时：0.06482744216918945s
 ```
 
-###2、基于skip_gram模型的词向量模型的训练
+### 2、基于skip_gram模型的词向量模型的训练
 ```python
 from TrainWord2vecSkipGram import main 
 from DataTransformer import DataTransformer 
@@ -134,7 +134,7 @@ Total 8888 word vectors.
 总共耗时：0.011003255844116211s
 ```
 
-###3、词向量模型的评估（近义词、反义词）
+### 3、词向量模型的评估（近义词、反义词）
 ```python
 from ModelEstimate import ModelEstimate
 estimate=ModelEstimate(embedding_path=config['pytorch_embedding_path'],model_type='skip-gram')
@@ -149,7 +149,7 @@ Total 8888 word vectors.
 模型反义词平均相似度0.6849341179078016
 ```
 
-###4、兼容基于gensim的word2vec模型的训练、基于skip_gram模型的词向量模型的训练的增量模型的训练
+### 4、兼容基于gensim的word2vec模型的训练、基于skip_gram模型的词向量模型的训练的增量模型的训练
 ```python
 from IncrementalModel import IncrementalModel
 file='E:/chinese-word2vec-pytorch/pyw2v/dataset/raw/zhihu.txt'
@@ -180,7 +180,7 @@ storing 8937x300 projection weights into E:\chinese-word2vec-pytorch\pyw2v\model
 ```
 
 
-###5、转换词向量
+### 5、转换词向量
 ```python
 data_transformer=DataTransformer(embedding_path='E:\chinese-word2vec-pytorch\pyw2v\model\word2vector_model200619_word2vec.pkl',model_type='gensim-word2vec')
 #embedding_path填的是你模型的位置，model_type填的是你的模型类型，不痛的类型转换词向量的代码不同，增强模型之后的模型填gensim-word2vec
@@ -201,7 +201,7 @@ output（以下是打印的日志）:
 ```
 
 
-##包版本：
+## 包版本：
 jieba                              0.42.1 
 scikit-learn                       0.22.1             
 mpmath                             1.1.0              
